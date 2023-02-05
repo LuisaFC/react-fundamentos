@@ -5,7 +5,11 @@ export default function Post(props) {
   return(
     <>
       <article>
-        <strong>{props.post.title}</strong> <br/>
+        <strong>
+          {props.post.read && <s>{props.post.title}</s>}  
+        </strong> 
+        <button onClick={() => props.onRemove(props.post.id)}>Remover</button>
+        <br/>
         <small>{props.post.subtitle}</small>
         <br/>
         Media: {props.likes / 2}
@@ -18,7 +22,9 @@ export default function Post(props) {
 
 Post.propTypes = {
   likes: PropTypes.number.isRequired,
+  onRemove: PropTypes.func.isRequired,
   post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
   }).isRequired
