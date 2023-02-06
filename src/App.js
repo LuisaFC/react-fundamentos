@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Post from './Post'
 import Header from './Header'
-
+import {ThemeProvider} from './ThemeContext'
 
 function App(){
+
   const [posts, setPosts] = useState(
     [
       {id: Math.random(), title: 'Titulo01', subtitle: 'Sub01', likes: 20, read: false},
@@ -27,7 +28,7 @@ function App(){
     setPosts((prevState) => prevState.filter(post => post.id !== postId))
   }
   return (
-    <>
+  <ThemeProvider>
       <Header> 
         <h2>
           Posts da semana
@@ -40,17 +41,11 @@ function App(){
       {posts.map(post => (
         <Post
           key={post.id}
-          likes = {post.likes}
           onRemove={handleRemove}
-          post={{
-            id: post.id,
-            title: post.title,
-            subtitle: post.subtitle,
-            read: post.read
-          }}
+          post={post}
         />
       ))}
-    </>
+    </ThemeProvider>
   )
 }
 
