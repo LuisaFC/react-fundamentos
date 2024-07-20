@@ -7,7 +7,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle[hash].js'
+    filename: 'bundle[fullhash].js'
   }, 
   plugins: [
     new htmlWebpackPlugin({
@@ -23,7 +23,7 @@ module.exports = {
         use: 'babel-loader'
       }, 
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           {
@@ -32,6 +32,7 @@ module.exports = {
               modules: true,
             },
           },
+          'sass-loader',
         ],
       },
     ],

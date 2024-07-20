@@ -31,7 +31,7 @@ function App(){
   return (
   <ThemeProvider>
       <Header> 
-        <h2 className={styles.title}>
+        <h2 className={styles.teste}>
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
