@@ -16,7 +16,7 @@ export default function Post(props) {
         <br/>
         <small>{props.post.subtitle}</small>
         <br/>
-        Media: {props.likes / 2}
+        Media: {props.post.likes / 2}
       </article>
       <br/>
       
