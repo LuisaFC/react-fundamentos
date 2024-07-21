@@ -20,7 +20,7 @@ function App() {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <Layout onToggleTheme={handletoggleTheme}/>
+      <Layout onToggleTheme={handletoggleTheme} selectedTheme={theme} />
     </ThemeProvider>
   );
 };
